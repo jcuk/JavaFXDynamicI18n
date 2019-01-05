@@ -23,6 +23,8 @@ public class DynamicI18n extends Application {
 		LOG.info("Application starting");
 		
 		launch(args);
+		
+		LOG.info("Application terminating");
 
 	}
 
@@ -34,6 +36,7 @@ public class DynamicI18n extends Application {
 		final Parent root = I18nFXMLLoader.load(ClassLoader.getSystemResource("i18n.fxml"), resourceFactory, null, null);
 		
 		primaryStage.setScene(new Scene(root, 300, 250));
+		primaryStage.setTitle("Dynamic Internationalisation");
         primaryStage.show();
 	}
 	

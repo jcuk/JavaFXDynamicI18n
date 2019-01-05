@@ -251,6 +251,7 @@ public class I18nFXMLLoader {
             	String i18nkey = null;
                 for (Attribute attribute : instancePropertyAttributes) {
                 	if (attribute.name.equals("text") && attribute.value.startsWith("%")) {
+                		//We have found an international string token. Store it for later if we can
                 		i18nkey = attribute.value;
                 		if (value instanceof Node) {
                 			((Node)value).getProperties().put(I18NKEY,i18nkey);
