@@ -7,7 +7,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 /** Resource factory that can notify observers when the contents change (e.g. change of language) */
-public class ObservableResourceFactory {
+public class ObservableResourceBundle {
 
     private ObjectProperty<ResourceBundle> resources = new SimpleObjectProperty<>();
     

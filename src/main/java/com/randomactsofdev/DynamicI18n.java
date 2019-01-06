@@ -17,7 +17,7 @@ public class DynamicI18n extends Application {
 	
 	private static Logger LOG = LogManager.getLogger(DynamicI18n.class);
 	
-	private static final ObservableResourceFactory resourceFactory = new ObservableResourceFactory();
+	private static final ObservableResourceBundle resourceFactory = new ObservableResourceBundle();
 
 	public static void main(String[] args) {
 		LOG.info("Application starting");

@@ -19,8 +19,8 @@
  *
  *
  *
- *
- *
+ * Modified to accept ObservableResourceBundle during FXML loading and set up binding
+ *   with the resource bundle  after loading
  */
 
 package com.randomactsofdev;
@@ -3153,7 +3153,7 @@ public class I18nFXMLLoader {
      * @param resourceFactory
      */
     @CallerSensitive
-    public static <T> T load(URL location, ObservableResourceFactory resourceFactory, Object root, Object controller)
+    public static <T> T load(URL location, ObservableResourceBundle resourceFactory, Object root, Object controller)
                                      throws IOException {
     	
         return loadImpl(location, resourceFactory,
@@ -3164,7 +3164,7 @@ public class I18nFXMLLoader {
                             controller);
     }
 
-    private static <T> T loadImpl(URL location, ObservableResourceFactory resourceFactory,
+    private static <T> T loadImpl(URL location, ObservableResourceBundle resourceFactory,
                                   Class<?> callerClass, Object root, Object controller) throws IOException {
         return loadImpl(location, resourceFactory,  null,
                         callerClass, root, controller);
@@ -3178,7 +3178,7 @@ public class I18nFXMLLoader {
      * @param builderFactory
      */
     @CallerSensitive
-    public static <T> T load(URL location, ObservableResourceFactory resourceFactory,
+    public static <T> T load(URL location, ObservableResourceBundle resourceFactory,
                              BuilderFactory builderFactory,
                              Object root,
                              Object controller)
@@ -3191,7 +3191,7 @@ public class I18nFXMLLoader {
                             controller);
     }
 
-    private static <T> T loadImpl(URL location, ObservableResourceFactory resourceFactory,
+    private static <T> T loadImpl(URL location, ObservableResourceBundle resourceFactory,
                                   BuilderFactory builderFactory,
                                   Class<?> callerClass,
                                   Object root, 
@@ -3209,7 +3209,7 @@ public class I18nFXMLLoader {
      * @since JavaFX 2.1
      */
     @CallerSensitive
-    public static <T> T load(URL location, ObservableResourceFactory resourceFactory,
+    public static <T> T load(URL location, ObservableResourceBundle resourceFactory,
                              BuilderFactory builderFactory,
                              Callback<Class<?>, Object> controllerFactory,
                              Object root,
@@ -3223,7 +3223,7 @@ public class I18nFXMLLoader {
                             controller);
     }
 
-    private static <T> T loadImpl(URL location, ObservableResourceFactory resourceFactory,
+    private static <T> T loadImpl(URL location, ObservableResourceBundle resourceFactory,
                                   BuilderFactory builderFactory,
                                   Callback<Class<?>, Object> controllerFactory,
                                   Class<?> callerClass,
@@ -3245,7 +3245,7 @@ public class I18nFXMLLoader {
      * @since JavaFX 2.1
      */
     @CallerSensitive
-    public static <T> T load(URL location, ObservableResourceFactory resourceFactory,
+    public static <T> T load(URL location, ObservableResourceBundle resourceFactory,
                              BuilderFactory builderFactory,
                              Callback<Class<?>, Object> controllerFactory,
                              Charset charset,
@@ -3260,7 +3260,7 @@ public class I18nFXMLLoader {
                             controller);
     }
 
-    private static <T> T loadImpl(URL location, ObservableResourceFactory resourceFactory,
+    private static <T> T loadImpl(URL location, ObservableResourceBundle resourceFactory,
                                   BuilderFactory builderFactory,
                                   Callback<Class<?>, Object> controllerFactory,
                                   Charset charset, Class<?> callerClass,
@@ -3603,7 +3603,7 @@ public class I18nFXMLLoader {
     }
     
     /** Recursively add observers to change text labels when resources (language) changes */
-    private static void addObservers(final Node parent, final ObservableResourceFactory resourceFactory) {
+    private static void addObservers(final Node parent, final ObservableResourceBundle resourceFactory) {
     	if (parent instanceof Labeled) {
     		
     		final String i18nlabel = (String) parent.getProperties().get(I18nFXMLLoader.I18NKEY);
